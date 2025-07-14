@@ -1,9 +1,16 @@
 from flask import Flask, render_template, request
 import pickle
-import nltk
 import string
+import nltk
+import os  # <-- ADD THIS
+
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+
+# Tell nltk to use local nltk_data folder
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), 'nltk_data'))
+
+
 
 nltk.download('punkt')
 nltk.download('stopwords')
